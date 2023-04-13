@@ -4,9 +4,11 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import demoqa.pages.components.CalendarComponent;
 import demoqa.pages.components.ResultTableComponent;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byTagAndText;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
@@ -48,5 +50,56 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage setLastName(String lastName){
+        lastNameInput.setValue(lastName);
+        return this;
+    }
+
+    public RegistrationPage setEmail(String email){
+        emailInput.setValue(email);
+        return this;
+    }
+
+    public RegistrationPage setGender(String gender){
+        genderSelection.$(byText(gender)).click();
+        return this;
+    }
+
+    public RegistrationPage setMobileNumber(String mobileNumber){
+        mobileInput.setValue(mobileNumber);
+        return this;
+    }
+
+    public RegistrationPage setSubject(String subject){
+        subjectsInput.setValue(subject).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage setHobby(String hobby){
+        hobbiesCheckBoxes.$(byText(hobby)).parent().click();
+        return this;
+    }
+
+    public RegistrationPage uploadFile(String file){
+        fileUpload.uploadFromClasspath(file);
+        return this;
+    }
+
+    public RegistrationPage setAddress(String address){
+        addressInput.setValue(address);
+        return this;
+    }
+
+    public RegistrationPage setState(String state){
+        stateSelection.click();
+        stateSelection.$(byText(state)).click();
+        return this;
+    }
+
+    public RegistrationPage setCity(String city){
+        citySelection.click();
+        citySelection.$(byText(city)).click();
+        return this;
+    }
 
 }

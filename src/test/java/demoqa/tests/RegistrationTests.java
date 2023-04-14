@@ -63,14 +63,14 @@ public class RegistrationTests extends TestBase{
                 .verifyResult("Student Email", email)
                 .verifyResult("Gender", gender)
                 .verifyResult("Mobile", mobileNumber)
-                .verifyResult("Student Email", email)
-                .verifyResult("Student Email", email)
-                .verifyResult("Student Email", email)
-                .verifyResult("Student Email", email)
-                .verifyResult("Student Email", email)
-                .verifyResult("Student Email", email)
-                .verifyResult("Student Email", email)
-                .verifyResult("Student Email", email)
+                .verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
+                .verifyResult("Subjects", subject1)
+                .verifyResult("Subjects", subject2)
+                .verifyResult("Hobbies", hobby1)
+                .verifyResult("Hobbies", hobby2)
+                .verifyResult("Picture", file)
+                .verifyResult("Address", currentAddress)
+                .verifyResult("State and City", state + " " + city);
 
     }
 }

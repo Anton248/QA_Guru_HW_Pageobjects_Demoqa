@@ -108,6 +108,11 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage submit() {
+        submit.click();
+        return this;
+    }
+
     public RegistrationPage verifyResultPageAppear(){
         resultTable.verifyAppear();
         return this;
@@ -117,5 +122,6 @@ public class RegistrationPage {
         resultTable.verifyResult(key, result);
         return this;
     }
+
 
 }

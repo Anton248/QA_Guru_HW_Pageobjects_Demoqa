@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import demoqa.pages.components.CalendarComponent;
 import demoqa.pages.components.ResultTableComponent;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byTagAndText;
@@ -15,13 +14,14 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 //https://demoqa.com/automation-practice-form
 public class RegistrationPage {
 
-    //defining all forms on the page
-    CalendarComponent datePicker = new CalendarComponent();
+    //selectors of all fields on the page
+    CalendarComponent calendarComponent = new CalendarComponent();
     SelenideElement firstNameInput = $("#firstName"),
                     lastNameInput = $("#lastName"),
                     emailInput = $("#userEmail"),
                     genderSelection = $("#genterWrapper"),
                     mobileInput = $("#userNumber"),
+                    dateOfBirthPicker = $("#dateOfBirthInput"),
                     subjectsInput = $("#subjectsInput"),
                     hobbiesCheckBoxes = $("#hobbiesWrapper"),
                     fileUpload = $("#uploadPicture"),
@@ -29,10 +29,10 @@ public class RegistrationPage {
                     stateSelection = $("#state"),
                     citySelection = $("#city");
 
-    //submit the form
+    //submit the form selector
     SelenideElement submit = $("#submit");
 
-    //resultTable component
+    //resultTable component selector
     ResultTableComponent resultTable = new ResultTableComponent();
 
     //describing all actions on the page
@@ -70,6 +70,12 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage setDateOfBirth(String day, String month, String year){
+        dateOfBirthPicker.click();
+        calendarComponent.setDate(day, month, year);
+        return this;
+    }
+
     public RegistrationPage setSubject(String subject){
         subjectsInput.setValue(subject).pressEnter();
         return this;
@@ -99,6 +105,16 @@ public class RegistrationPage {
     public RegistrationPage setCity(String city){
         citySelection.click();
         citySelection.$(byText(city)).click();
+        return this;
+    }
+
+    public RegistrationPage verifyResultPageAppear(){
+        resultTable.verifyAppear();
+        return this;
+    }
+
+    public RegistrationPage verifyResult(String key, String result) {
+        resultTable.verifyResult(key, result);
         return this;
     }
 

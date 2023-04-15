@@ -43,7 +43,7 @@ public class DataGenerating {
     static private String stateUtil; //auxiliary value to remember state as cities depend on states
 
     static public <T> T randomValueFromArray(T[] array) {
-        return array[ThreadLocalRandom.current().nextInt(0, array.length)];
+        return array[ThreadLocalRandom.current().nextInt(0, array.length-1)];
     }
 
     static public String getFirstName() {

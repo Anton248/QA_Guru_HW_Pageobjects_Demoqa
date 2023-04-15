@@ -2,6 +2,9 @@ package demoqa.utils;
 
 import com.github.javafaker.Faker;
 
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.concurrent.ThreadLocalRandom;
@@ -13,6 +16,8 @@ public class DataGenerating {
     static private final Faker autogenEn = new Faker(new Locale("en"));
 
     //RegistrationPage
+
+    static private final Date dateOfBirth = autogenEn.date().birthday(10,110);
 
     //Database for states and cities
     static private final String[] states = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
@@ -30,11 +35,9 @@ public class DataGenerating {
             email = autogenEn.internet().emailAddress(),
             gender = new String[]{"Male", "Female", "Other"}[ThreadLocalRandom.current().nextInt(0, 2)],
             mobileNumber = ThreadLocalRandom.current().nextInt(10000, 99999) + "" + ThreadLocalRandom.current().nextInt(10000, 99999),
-            dayOfBirth = String.valueOf(ThreadLocalRandom.current().nextInt(1, 28)),
-            monthOfBirth =  new String[]{
-                    "January", "February", "March", "April", "May", "June",
-                    "July", "August", "September", "October", "November", "December"}[ThreadLocalRandom.current().nextInt(0, 11)],
-            yearOfBirth = String.valueOf(ThreadLocalRandom.current().nextInt(1900, 2023)),
+            dayOfBirth = String.valueOf(dateOfBirth.getDate()),
+            monthOfBirth =  Month.of(dateOfBirth.getMonth()).getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en")),
+            yearOfBirth = String.valueOf(dateOfBirth.getYear()+1900),
             subject1 = new String[]{"Hindi", "English", "Maths", "Physics", "Chemistry", "Biology",
                     "Biology", "Commerce", "Accounting", "Economics",
                     "Arts", "Social Studies", "History", "Civics"}[ThreadLocalRandom.current().nextInt(0, 14)],

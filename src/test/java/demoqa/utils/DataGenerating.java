@@ -8,7 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DataGenerating {
 
-    //unit for autogenerating data
+    //units for autogenerating data
     static private final Faker autogenRu = new Faker(new Locale("ru"));
     static private final Faker autogenEn = new Faker(new Locale("en"));
 

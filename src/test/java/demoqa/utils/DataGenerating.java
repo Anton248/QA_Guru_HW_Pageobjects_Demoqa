@@ -26,7 +26,7 @@ public class DataGenerating {
     //values to use in test directly
     static public final String firstName = autogen.name().firstName(),
             lastName = autogen.name().lastName(),
-            email = autogen.internet().emailAddress("en"),
+            email = autogen.internet().emailAddress(autogen.idNumber().valid()),
             gender = new String[]{"Male", "Female", "Other"}[ThreadLocalRandom.current().nextInt(0, 2)],
             mobileNumber = ThreadLocalRandom.current().nextInt(10000, 99999) + "" + ThreadLocalRandom.current().nextInt(10000, 99999),
             dayOfBirth = String.valueOf(ThreadLocalRandom.current().nextInt(1, 28)),

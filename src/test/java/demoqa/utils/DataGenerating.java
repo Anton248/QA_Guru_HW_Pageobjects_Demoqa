@@ -55,5 +55,5 @@ public class DataGenerating {
     //values to use in test directly
     static public final String fullName = autogenRu.name().fullName(),
             permanentsAddress = autogenRu.address().fullAddress();
-            //email and currentAddress are the same as in RegistrationPage
+            //email and currentAddress are the same as for RegistrationPage
 }

@@ -16,9 +16,8 @@ public class DataGenerating {
     //setting some data for RegistrationPage
 
     static private final Calendar dateOfBirth = new GregorianCalendar();
-
     static {
-        dateOfBirth.setTime(autogenEn.date().birthday(10, 110));
+        dateOfBirth.setTime(autogenEn.date().birthday(10, 120)); // (10, 120) - range of age
     }
 
     private static final String[] genders = {"Male", "Female", "Other"};
@@ -28,22 +27,20 @@ public class DataGenerating {
             "Biology", "Commerce", "Accounting", "Economics", "Computer Science",
             "Arts", "Social Studies", "History", "Civics"};
 
-    private static String firstSubject;
+    private static String firstSubject; //auxiliary value letting to add two subjects into the field
 
     public static final String file = "1.jpg";
     public static final String pathToPictures = "pictures/";
 
     static private final String[] states = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
     static private final HashMap<String, String[]> statesAndCities = new HashMap<>();
-
     static {
         statesAndCities.put(states[0], new String[]{"Delhi", "Gurgaon", "Noida"});
         statesAndCities.put(states[1], new String[]{"Agra", "Lucknow", "Merrut"});
         statesAndCities.put(states[2], new String[]{"Karnal", "Panipat"});
         statesAndCities.put(states[3], new String[]{"Jaipur", "Jaiselmer"});
     }
-
-    static private String stateUtil;
+    static private String stateUtil; //auxiliary value to remember state as cities depend on states
 
     static public <T> T randomValueFromArray(T[] array) {
         return array[ThreadLocalRandom.current().nextInt(0, array.length)];

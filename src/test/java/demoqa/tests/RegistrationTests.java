@@ -27,12 +27,9 @@ public class RegistrationTests extends TestBase {
                 state = getState(),
                 city = getCity();
 
-        registrationPage.open();
-        registrationPage.removeBanners();
+        registrationPage.open().removeBanners();
 
         //filling the input fields, clicking the checkboxes, etc
-        //values are generated in utils/DataGenerating
-
         registrationPage.setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)

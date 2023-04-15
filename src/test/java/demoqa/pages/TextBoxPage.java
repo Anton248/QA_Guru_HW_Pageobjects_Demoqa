@@ -8,8 +8,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
+// https://demoqa.com/text-box
 public class TextBoxPage {
-
 
     //selectors of all fields on the page
     SelenideElement fullNameInput = $("input#userName"),
@@ -61,5 +61,4 @@ public class TextBoxPage {
         outputComponentSelector.$(byText(key)).shouldHave(text(value));
         return this;
     }
-
 }

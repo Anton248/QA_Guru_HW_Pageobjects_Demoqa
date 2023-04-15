@@ -23,6 +23,7 @@ public class DataGenerating {
     private static final String[] genders = {"Male", "Female", "Other"};
 
     private static final String[] hobbies = {"Sports", "Reading", "Music"};
+
     private static final String[] subjects = {"Hindi", "English", "Maths", "Physics", "Chemistry", "Biology",
             "Biology", "Commerce", "Accounting", "Economics", "Computer Science",
             "Arts", "Social Studies", "History", "Civics"};

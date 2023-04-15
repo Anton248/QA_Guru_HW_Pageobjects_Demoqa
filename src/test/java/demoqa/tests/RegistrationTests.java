@@ -1,5 +1,6 @@
 package demoqa.tests;
 
+import demoqa.utils.DataGenerating;
 import org.junit.jupiter.api.Test;
 
 import static demoqa.utils.DataGenerating.*;
@@ -21,8 +22,8 @@ public class RegistrationTests extends TestBase {
                 subject1 = getSubject(),
                 subject2 = getAnotherSubject(),
                 hobby = getHobby(),
-                file = "1.jpg",
-                pathToPictures = "pictures/",
+                file = DataGenerating.file,
+                pathToPictures = DataGenerating.pathToPictures,
                 currentAddress = getAddress(),
                 state = getState(),
                 city = getCity();

@@ -2,15 +2,9 @@ package demoqa.tests;
 
 import org.junit.jupiter.api.Test;
 
-public class TextBoxTests extends TestBase {
+import static demoqa.utils.DataGenerating.*;
 
-    //values for input fields
-    String fullName = "Иван Иванов",
-            email = "ivanov@yahoo.com",
-            currentAddress = "Москва, ул. Уличная, д.1, кв. 111\n" +
-                    "Индекс: 99999",
-            permanentsAddress = "Анадырь, Полярная ул., д.22\n" +
-                    "Индекс: 11111";
+public class TextBoxTests extends TestBase {
 
     //testing all fields on the page
     @Test

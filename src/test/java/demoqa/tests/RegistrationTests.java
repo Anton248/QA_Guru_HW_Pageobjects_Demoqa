@@ -2,26 +2,9 @@ package demoqa.tests;
 
 import org.junit.jupiter.api.Test;
 
-public class RegistrationTests extends TestBase {
+import static demoqa.utils.DataGenerating.*;
 
-    //values for input fields, checkboxes, etc
-    String firstName = "Ivan",
-            lastName = "Ivanov",
-            email = "ivanov@ivanov.com",
-            gender = "Male",
-            mobileNumber = "1234567890",
-            dayOfBirth = "2",
-            monthOfBirth = "February",
-            yearOfBirth = "2000",
-            subject1 = "Chemistry",
-            subject2 = "Computer Science",
-            hobby1 = "Sports",
-            hobby2 = "Reading",
-            file = "1.jpg",
-            pathToPictures = "pictures/",
-            currentAddress = "Москва, ул. Уличная, д.5, кв.111",
-            state = "Uttar Pradesh",
-            city = "Agra";
+public class RegistrationTests extends TestBase {
 
     @Test
     void allFieldsTest() {
@@ -29,6 +12,8 @@ public class RegistrationTests extends TestBase {
         registrationPage.removeBanners();
 
         //filling the input fields, clicking the checkboxes, etc
+        //values are generated in utils/DataGenerating
+
         registrationPage.setFirstName(firstName)
                 .setLastName(lastName)
                 .setEmail(email)

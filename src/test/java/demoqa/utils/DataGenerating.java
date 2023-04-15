@@ -67,7 +67,7 @@ public class DataGenerating {
     }
 
     static public String getMonthOfBirth() {
-        return Month.of(dateOfBirth.get(Calendar.MONTH))
+        return Month.of(dateOfBirth.get(Calendar.MONTH)+1)
                 .getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en"));
     }
 

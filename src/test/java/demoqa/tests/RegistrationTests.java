@@ -31,11 +31,8 @@ public class RegistrationTests extends TestBase{
 
     @Test
     void allFieldsTest() {
-        open("/automation-practice-form");
-
-        //deleting ad banners
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+        registrationPage.open();
+        registrationPage.removeBanners();
 
         //filling the input fields, clicking the checkboxes, etc
         registrationPage.setFirstName(firstName)

@@ -30,7 +30,7 @@ public class RegistrationPage {
                     citySelection = $("#city");
 
     //submit the form selector
-    SelenideElement submit = $("#submit");
+    SelenideElement submit = $("button#submit");
 
     //resultTable component selector
     ResultTableComponent resultTable = new ResultTableComponent();
@@ -42,6 +42,13 @@ public class RegistrationPage {
         $(byTagAndText("h5", "Student Registration Form")).shouldBe(visible);
         executeJavaScript("$('#fixedban').remove()"); //removing ad banners
         executeJavaScript("$('footer').remove()"); //removing ad banners
+        return this;
+    }
+
+
+    public RegistrationPage removeBanners() {
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         return this;
     }
 

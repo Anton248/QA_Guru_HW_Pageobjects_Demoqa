@@ -1,14 +1,8 @@
 package demoqa.tests;
 
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.$;
-
-public class RegistrationTests extends TestBase{
+public class RegistrationTests extends TestBase {
 
     //values for input fields, checkboxes, etc
     String firstName = "Ivan",
@@ -68,6 +62,5 @@ public class RegistrationTests extends TestBase{
                 .verifyResult("Picture", file)
                 .verifyResult("Address", currentAddress)
                 .verifyResult("State and City", state + " " + city);
-
     }
 }

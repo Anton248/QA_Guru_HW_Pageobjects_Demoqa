@@ -17,17 +17,17 @@ public class RegistrationPage {
     //selectors of all fields on the page
     CalendarComponent calendarComponent = new CalendarComponent();
     SelenideElement firstNameInput = $("#firstName"),
-                    lastNameInput = $("#lastName"),
-                    emailInput = $("#userEmail"),
-                    genderSelection = $("#genterWrapper"),
-                    mobileInput = $("#userNumber"),
-                    dateOfBirthPicker = $("#dateOfBirthInput"),
-                    subjectsInput = $("#subjectsInput"),
-                    hobbiesCheckBoxes = $("#hobbiesWrapper"),
-                    fileUpload = $("#uploadPicture"),
-                    addressInput = $("#currentAddress"),
-                    stateSelection = $("#state"),
-                    citySelection = $("#city");
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            genderSelection = $("#genterWrapper"),
+            mobileInput = $("#userNumber"),
+            dateOfBirthPicker = $("#dateOfBirthInput"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesCheckBoxes = $("#hobbiesWrapper"),
+            fileUpload = $("#uploadPicture"),
+            addressInput = $("#currentAddress"),
+            stateSelection = $("#state"),
+            citySelection = $("#city");
 
     //submit the form selector
     SelenideElement submit = $("button#submit");
@@ -52,64 +52,64 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setFirstName(String firstName){
+    public RegistrationPage setFirstName(String firstName) {
         firstNameInput.setValue(firstName);
         return this;
     }
 
-    public RegistrationPage setLastName(String lastName){
+    public RegistrationPage setLastName(String lastName) {
         lastNameInput.setValue(lastName);
         return this;
     }
 
-    public RegistrationPage setEmail(String email){
+    public RegistrationPage setEmail(String email) {
         emailInput.setValue(email);
         return this;
     }
 
-    public RegistrationPage setGender(String gender){
+    public RegistrationPage setGender(String gender) {
         genderSelection.$(byText(gender)).click();
         return this;
     }
 
-    public RegistrationPage setMobileNumber(String mobileNumber){
+    public RegistrationPage setMobileNumber(String mobileNumber) {
         mobileInput.setValue(mobileNumber);
         return this;
     }
 
-    public RegistrationPage setDateOfBirth(String day, String month, String year){
+    public RegistrationPage setDateOfBirth(String day, String month, String year) {
         dateOfBirthPicker.click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
 
-    public RegistrationPage setSubject(String subject){
+    public RegistrationPage setSubject(String subject) {
         subjectsInput.setValue(subject).pressEnter();
         return this;
     }
 
-    public RegistrationPage setHobby(String hobby){
+    public RegistrationPage setHobby(String hobby) {
         hobbiesCheckBoxes.$(byText(hobby)).parent().click();
         return this;
     }
 
-    public RegistrationPage uploadFile(String file){
+    public RegistrationPage uploadFile(String file) {
         fileUpload.uploadFromClasspath(file);
         return this;
     }
 
-    public RegistrationPage setAddress(String address){
+    public RegistrationPage setAddress(String address) {
         addressInput.setValue(address);
         return this;
     }
 
-    public RegistrationPage setState(String state){
+    public RegistrationPage setState(String state) {
         stateSelection.click();
         stateSelection.$(byText(state)).click();
         return this;
     }
 
-    public RegistrationPage setCity(String city){
+    public RegistrationPage setCity(String city) {
         citySelection.click();
         citySelection.$(byText(city)).click();
         return this;
@@ -120,7 +120,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage verifyResultPageAppear(){
+    public RegistrationPage verifyResultPageAppear() {
         resultTable.verifyAppear();
         return this;
     }
@@ -129,6 +129,5 @@ public class RegistrationPage {
         resultTable.verifyResult(key, result);
         return this;
     }
-
 
 }

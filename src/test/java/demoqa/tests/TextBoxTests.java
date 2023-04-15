@@ -5,12 +5,12 @@ import org.junit.jupiter.api.Test;
 public class TextBoxTests extends TestBase {
 
     //values for input fields
-    String  fullName = "Иван Иванов",
+    String fullName = "Иван Иванов",
             email = "ivanov@yahoo.com",
             currentAddress = "Москва, ул. Уличная, д.1, кв. 111\n" +
-                             "Индекс: 99999",
+                    "Индекс: 99999",
             permanentsAddress = "Анадырь, Полярная ул., д.22\n" +
-                                "Индекс: 11111";
+                    "Индекс: 11111";
 
     //testing all fields on the page
     @Test

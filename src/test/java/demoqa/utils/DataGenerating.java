@@ -9,7 +9,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DataGenerating {
 
     //unit for autogenerating data
-    static private final Faker autogen = new Faker(new Locale("ru"));
+    static private final Faker autogenRu = new Faker(new Locale("ru"));
+    static private final Faker autogenEn = new Faker(new Locale("en"));
 
     //RegistrationPage
 
@@ -24,9 +25,9 @@ public class DataGenerating {
     }
 
     //values to use in test directly
-    static public final String firstName = autogen.name().firstName(),
-            lastName = autogen.name().lastName(),
-            email = autogen.internet().emailAddress(autogen.idNumber().valid()),
+    static public final String firstName = autogenRu.name().firstName(),
+            lastName = autogenRu.name().lastName(),
+            email = autogenEn.internet().emailAddress(),
             gender = new String[]{"Male", "Female", "Other"}[ThreadLocalRandom.current().nextInt(0, 2)],
             mobileNumber = ThreadLocalRandom.current().nextInt(10000, 99999) + "" + ThreadLocalRandom.current().nextInt(10000, 99999),
             dayOfBirth = String.valueOf(ThreadLocalRandom.current().nextInt(1, 28)),
@@ -42,14 +43,14 @@ public class DataGenerating {
             hobby2 = "Music",
             file = "1.jpg",
             pathToPictures = "pictures/",
-            currentAddress = autogen.address().fullAddress(),
+            currentAddress = autogenRu.address().fullAddress(),
             state = states[ThreadLocalRandom.current().nextInt(0, states.length-1)],
             city = statesAndCities.get(state)[ThreadLocalRandom.current().nextInt(0, statesAndCities.get(state).length-1)];
 
     //TextBoxPage
 
     //values to use in test directly
-    static public final String fullName = autogen.name().fullName(),
-            permanentsAddress = autogen.address().fullAddress();
+    static public final String fullName = autogenRu.name().fullName(),
+            permanentsAddress = autogenRu.address().fullAddress();
             //email and currentAddress are the same as in RegistrationPage
 }

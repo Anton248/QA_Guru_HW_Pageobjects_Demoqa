@@ -28,6 +28,8 @@ public class DataGenerating {
             "Biology", "Commerce", "Accounting", "Economics", "Computer Science",
             "Arts", "Social Studies", "History", "Civics"};
 
+    private static String firstSubject;
+
     public static final String file = "1.jpg";
     public static final String pathToPictures = "pictures/";
 
@@ -59,12 +61,17 @@ public class DataGenerating {
         return autogenRu.name().fullName();
     }
 
-    static public String dayOfBirth() {
+    static public String getEmail() {
+        return autogenEn.internet().emailAddress();
+    }
+
+    static public String getDayOfBirth() {
         return String.valueOf(dateOfBirth.get(Calendar.DAY_OF_MONTH));
     }
 
     static public String getMonthOfBirth() {
-        return Month.of(dateOfBirth.get(Calendar.MONTH)).getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en"));
+        return Month.of(dateOfBirth.get(Calendar.MONTH))
+                .getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en"));
     }
 
     static public String getYearOfBirth() {
@@ -87,7 +94,16 @@ public class DataGenerating {
     }
 
     static public String getSubject() {
-        return randomValueFromArray(subjects);
+        firstSubject = randomValueFromArray(subjects);
+        return firstSubject;
+    }
+
+    static public String getAnotherSubject() {
+        String anotherSubject = randomValueFromArray(subjects);
+        while (anotherSubject.equals(firstSubject)){
+            anotherSubject = randomValueFromArray(subjects);
+        }
+        return anotherSubject;
     }
 
     static public String getHobby() {

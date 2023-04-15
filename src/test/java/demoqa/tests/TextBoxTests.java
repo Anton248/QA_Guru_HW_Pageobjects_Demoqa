@@ -6,6 +6,12 @@ import static demoqa.utils.DataGenerating.*;
 
 public class TextBoxTests extends TestBase {
 
+    //values for input fields (using demoqa.utils.DataGenerating)
+    String fullName = getFullName(),
+            email = getEmail(),
+            currentAddress = getAddress(),
+            permanentsAddress = getAddress();
+
     //testing all fields on the page
     @Test
     void textBoxTests() {

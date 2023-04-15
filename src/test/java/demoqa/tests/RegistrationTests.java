@@ -8,6 +8,25 @@ public class RegistrationTests extends TestBase {
 
     @Test
     void allFieldsTest() {
+
+        //values for input fields, checkboxes, etc (using demoqa.utils.DataGenerating)
+        String firstName = getFirstName(),
+                lastName = getLasName(),
+                email = getEmail(),
+                gender = getGender(),
+                mobileNumber = getMobileNumber10Digits(),
+                dayOfBirth = getDayOfBirth(),
+                monthOfBirth = getMonthOfBirth(),
+                yearOfBirth = getYearOfBirth(),
+                subject1 = getSubject(),
+                subject2 = getAnotherSubject(),
+                hobby = getHobby(),
+                file = "1.jpg",
+                pathToPictures = "pictures/",
+                currentAddress = getAddress(),
+                state = getState(),
+                city = getCity();
+
         registrationPage.open();
         registrationPage.removeBanners();
 
@@ -22,8 +41,7 @@ public class RegistrationTests extends TestBase {
                 .setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth)
                 .setSubject(subject1)
                 .setSubject(subject2)
-                .setHobby(hobby1)
-                .setHobby(hobby2)
+                .setHobby(hobby)
                 .uploadFile(pathToPictures + file)
                 .setAddress(currentAddress)
                 .setState(state)
@@ -42,8 +60,7 @@ public class RegistrationTests extends TestBase {
                 .verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .verifyResult("Subjects", subject1)
                 .verifyResult("Subjects", subject2)
-                .verifyResult("Hobbies", hobby1)
-                .verifyResult("Hobbies", hobby2)
+                .verifyResult("Hobbies", hobby)
                 .verifyResult("Picture", file)
                 .verifyResult("Address", currentAddress)
                 .verifyResult("State and City", state + " " + city);

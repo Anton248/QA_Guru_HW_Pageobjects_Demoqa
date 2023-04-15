@@ -20,7 +20,7 @@ public class ResultTableComponent {
     }
 
     public void verifyResult(String key, String value){
-        resultDialogSelector.$(byTagAndText("td", key)).sibling(0).shouldHave(text("value"));
+        resultDialogSelector.$(byTagAndText("td", key)).sibling(0).shouldHave(text(value));
     }
 
 }

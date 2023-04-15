@@ -7,6 +7,7 @@ import static demoqa.utils.DataGenerating.*;
 
 public class RegistrationTests extends TestBase {
 
+    //testing all fields on the page
     @Test
     void allFieldsTest() {
 

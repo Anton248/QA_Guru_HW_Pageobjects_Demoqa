@@ -13,16 +13,27 @@ public class DataGenerating {
     static private final Faker autogenRu = new Faker(new Locale("ru"));
     static private final Faker autogenEn = new Faker(new Locale("en"));
 
-    //RegistrationPage
+    //setting some data for RegistrationPage
 
     static private final Calendar dateOfBirth = new GregorianCalendar();
+
     static {
-        dateOfBirth.setTime(autogenEn.date().birthday(10,110));
+        dateOfBirth.setTime(autogenEn.date().birthday(10, 110));
     }
 
-    //Database for states and cities
+    private static final String[] genders = {"Male", "Female", "Other"};
+
+    private static final String[] hobbies = {"Sports", "Reading", "Music"};
+    private static final String[] subjects = {"Hindi", "English", "Maths", "Physics", "Chemistry", "Biology",
+            "Biology", "Commerce", "Accounting", "Economics", "Computer Science",
+            "Arts", "Social Studies", "History", "Civics"};
+
+    public static final String file = "1.jpg";
+    public static final String pathToPictures = "pictures/";
+
     static private final String[] states = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
     static private final HashMap<String, String[]> statesAndCities = new HashMap<>();
+
     static {
         statesAndCities.put(states[0], new String[]{"Delhi", "Gurgaon", "Noida"});
         statesAndCities.put(states[1], new String[]{"Agra", "Lucknow", "Merrut"});
@@ -30,31 +41,66 @@ public class DataGenerating {
         statesAndCities.put(states[3], new String[]{"Jaipur", "Jaiselmer"});
     }
 
-    //values to use in test directly
-    static public final String firstName = autogenRu.name().firstName(),
-            lastName = autogenRu.name().lastName(),
-            email = autogenEn.internet().emailAddress(),
-            gender = new String[]{"Male", "Female", "Other"}[ThreadLocalRandom.current().nextInt(0, 2)],
-            mobileNumber = ThreadLocalRandom.current().nextInt(10000, 99999) + "" + ThreadLocalRandom.current().nextInt(10000, 99999),
-            dayOfBirth = String.valueOf(dateOfBirth.get(Calendar.DAY_OF_MONTH)),
-            monthOfBirth =  Month.of(dateOfBirth.get(Calendar.MONTH)).getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en")),
-            yearOfBirth = String.valueOf(dateOfBirth.get(Calendar.YEAR)),
-            subject1 = new String[]{"Hindi", "English", "Maths", "Physics", "Chemistry", "Biology",
-                    "Biology", "Commerce", "Accounting", "Economics",
-                    "Arts", "Social Studies", "History", "Civics"}[ThreadLocalRandom.current().nextInt(0, 14)],
-            subject2 = "Computer Science",
-            hobby1 = new String[]{"Sports", "Reading"}[ThreadLocalRandom.current().nextInt(0, 1)],
-            hobby2 = "Music",
-            file = "1.jpg",
-            pathToPictures = "pictures/",
-            currentAddress = autogenRu.address().fullAddress(),
-            state = states[ThreadLocalRandom.current().nextInt(0, states.length-1)],
-            city = statesAndCities.get(state)[ThreadLocalRandom.current().nextInt(0, statesAndCities.get(state).length-1)];
+    static private String stateUtil;
 
-    //TextBoxPage
+    static public <T> T randomValueFromArray(T[] array) {
+        return array[ThreadLocalRandom.current().nextInt(0, array.length)];
+    }
 
-    //values to use in test directly
-    static public final String fullName = autogenRu.name().fullName(),
-            permanentsAddress = autogenRu.address().fullAddress();
-            //email and currentAddress are the same as for RegistrationPage
+    static public String getFirstName() {
+        return autogenRu.name().firstName();
+    }
+
+    static public String getLasName() {
+        return autogenRu.name().lastName();
+    }
+
+    static public String getFullName() {
+        return autogenRu.name().fullName();
+    }
+
+    static public String dayOfBirth() {
+        return String.valueOf(dateOfBirth.get(Calendar.DAY_OF_MONTH));
+    }
+
+    static public String getMonthOfBirth() {
+        return Month.of(dateOfBirth.get(Calendar.MONTH)).getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en"));
+    }
+
+    static public String getYearOfBirth() {
+        return String.valueOf(dateOfBirth.get(Calendar.YEAR));
+    }
+
+    static public String getAddress() {
+        return autogenRu.address().fullAddress();
+    }
+
+    //specific utils for RegistrationPage
+
+    static public String getGender() {
+        return randomValueFromArray(genders);
+    }
+
+    static public String getMobileNumber10Digits() {
+        return ThreadLocalRandom.current().nextInt(10000, 99999) + ""
+                + ThreadLocalRandom.current().nextInt(10000, 99999);
+    }
+
+    static public String getSubject() {
+        return randomValueFromArray(subjects);
+    }
+
+    static public String getHobby() {
+        return randomValueFromArray(hobbies);
+    }
+
+    static public String getState() {
+        stateUtil = randomValueFromArray(states);
+        return stateUtil;
+    }
+
+    static public String getCity() {
+        String[] cities = statesAndCities.get(stateUtil);
+        return randomValueFromArray(cities);
+    }
 }

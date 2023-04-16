@@ -8,8 +8,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DataGenerating {
 
     //units for autogenerating data
-    static private final Faker autogenRu = new Faker(new Locale("ru"));
-    static private final Faker autogenEn = new Faker(new Locale("en"));
+    private static final Faker autogenRu = new Faker(new Locale("ru"));
+    private static final Faker autogenEn = new Faker(new Locale("en"));
 
     //setting some data for RegistrationPage
 
@@ -21,13 +21,11 @@ public class DataGenerating {
             "Biology", "Commerce", "Accounting", "Economics", "Computer Science",
             "Arts", "Social Studies", "History", "Civics"};
 
-    private static String firstSubject; //auxiliary value letting to add two subjects into the field
-
     public static final String file = "1.jpg";
     public static final String pathToPictures = "pictures/";
 
-    static private final String[] states = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
-    static private final HashMap<String, String[]> statesAndCities = new HashMap<>();
+    private static final String[] states = new String[]{"NCR", "Uttar Pradesh", "Haryana", "Rajasthan"};
+    private static final HashMap<String, String[]> statesAndCities = new HashMap<>();
     static {
         statesAndCities.put(states[0], new String[]{"Delhi", "Gurgaon", "Noida"});
         statesAndCities.put(states[1], new String[]{"Agra", "Lucknow", "Merrut"});
@@ -37,7 +35,8 @@ public class DataGenerating {
 
     //generating data utils
 
-    static private String stateUtil; //auxiliary value to remember state as cities depend on states
+    private static String stateUtil; //auxiliary value to remember state as cities depend on states
+    private static String firstSubject; //auxiliary value which lets to add two subjects into the 'subject field'
 
     static public <T> T randomValueFromArray(T[] array) {
         return array[ThreadLocalRandom.current().nextInt(0, array.length-1)];

@@ -11,7 +11,7 @@ public class DataGenerating {
     private static final Faker autogenRu = new Faker(new Locale("ru"));
     private static final Faker autogenEn = new Faker(new Locale("en"));
 
-    //setting some data for RegistrationPage
+    //describing the data, which RegistrationPage contained
 
     private static final String[] genders = {"Male", "Female", "Other"};
 

@@ -2,8 +2,6 @@ package demoqa.utils;
 
 import com.github.javafaker.Faker;
 
-import java.time.Month;
-import java.time.format.TextStyle;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -37,7 +35,7 @@ public class DataGenerating {
         statesAndCities.put(states[3], new String[]{"Jaipur", "Jaiselmer"});
     }
 
-    //utils for generating data
+    //generating data utils
 
     static private String stateUtil; //auxiliary value to remember state as cities depend on states
 

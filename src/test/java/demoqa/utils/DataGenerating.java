@@ -36,7 +36,7 @@ public class DataGenerating {
     //generating data utils
 
     private static String stateUtil; //auxiliary value to remember state as cities depend on states
-    private static HashSet<String> usedSubjects = new HashSet<>(); //auxiliary value which lets to add more subjects into the 'subject field'
+    private static ArrayList<String> unusedSubjects = new ArrayList<>(Arrays.asList(subjects)); //auxiliary value which lets to add more subjects into the 'subject field'
 
     static public <T> T randomValueFromArray(T[] array) {
         return array[ThreadLocalRandom.current().nextInt(0, array.length-1)];
@@ -80,19 +80,10 @@ public class DataGenerating {
     }
 
     static public String getSubject() {
-        String firstSubject = randomValueFromArray(subjects);
-        usedSubjects.add(firstSubject);
-        return firstSubject;
-    }
-
-    static public String getAnotherSubject() {
-        if (usedSubjects.size() == subjects.length) return null;
-        String anotherSubject = randomValueFromArray(subjects);
-        while (usedSubjects.contains(anotherSubject)){
-            anotherSubject = randomValueFromArray(subjects);
-        }
-        usedSubjects.add(anotherSubject);
-        return anotherSubject;
+        String[] unused = unusedSubjects.toArray(new String[0]);
+        String subject = randomValueFromArray(unused);
+        unusedSubjects.remove(subject);
+        return subject;
     }
 
     static public String getHobby() {

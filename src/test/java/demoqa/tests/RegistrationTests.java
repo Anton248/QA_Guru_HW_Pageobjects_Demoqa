@@ -30,7 +30,7 @@ public class RegistrationTests extends TestBase {
                         .getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en")),
                 yearOfBirth = String.valueOf(dateOfBirth.get(Calendar.YEAR)),
                 subject1 = getSubject(),
-                subject2 = getAnotherSubject(),
+                subject2 = getSubject(),
                 hobby = getHobby(),
                 file = DataGenerating.file,
                 pathToPictures = DataGenerating.pathToPictures,

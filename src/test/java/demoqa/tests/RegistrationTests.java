@@ -3,6 +3,11 @@ package demoqa.tests;
 import demoqa.utils.DataGenerating;
 import org.junit.jupiter.api.Test;
 
+import java.time.Month;
+import java.time.format.TextStyle;
+import java.util.Calendar;
+import java.util.Locale;
+
 import static demoqa.utils.DataGenerating.*;
 
 public class RegistrationTests extends TestBase {
@@ -12,14 +17,18 @@ public class RegistrationTests extends TestBase {
     void allFieldsTest() {
 
         //values for input fields, checkboxes, etc (using demoqa.utils.DataGenerating)
+
+        Calendar dateOfBirth = getDateOfBirth(); //to arrange proper dependencies between day, month and year
+
         String firstName = getFirstName(),
                 lastName = getLasName(),
                 email = getEmail(),
                 gender = getGender(),
                 mobileNumber = getMobileNumber10Digits(),
-                dayOfBirth = getDayOfBirth(),
-                monthOfBirth = getMonthOfBirth(),
-                yearOfBirth = getYearOfBirth(),
+                dayOfBirth = String.valueOf(dateOfBirth.get(Calendar.DAY_OF_MONTH)),
+                monthOfBirth = Month.of(dateOfBirth.get(Calendar.MONTH)+1)
+                        .getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en")),
+                yearOfBirth = String.valueOf(dateOfBirth.get(Calendar.YEAR)),
                 subject1 = getSubject(),
                 subject2 = getAnotherSubject(),
                 hobby = getHobby(),
@@ -29,6 +38,7 @@ public class RegistrationTests extends TestBase {
                 state = getState(),
                 city = getCity();
 
+        //opening the page and removing banners
         registrationPage.open().removeBanners();
 
         //filling the input fields, clicking the checkboxes, etc
@@ -45,7 +55,6 @@ public class RegistrationTests extends TestBase {
                 .setAddress(currentAddress)
                 .setState(state)
                 .setCity(city);
-
 
         //submit the form
         registrationPage.submit();

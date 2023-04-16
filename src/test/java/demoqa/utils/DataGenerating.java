@@ -15,11 +15,6 @@ public class DataGenerating {
 
     //setting some data for RegistrationPage
 
-    static private final Calendar dateOfBirth = new GregorianCalendar();
-    static {
-        dateOfBirth.setTime(autogenEn.date().birthday(10, 120)); // (10, 120) - range of age
-    }
-
     private static final String[] genders = {"Male", "Female", "Other"};
 
     private static final String[] hobbies = {"Sports", "Reading", "Music"};
@@ -41,6 +36,9 @@ public class DataGenerating {
         statesAndCities.put(states[2], new String[]{"Karnal", "Panipat"});
         statesAndCities.put(states[3], new String[]{"Jaipur", "Jaiselmer"});
     }
+
+    //utils for generating data
+
     static private String stateUtil; //auxiliary value to remember state as cities depend on states
 
     static public <T> T randomValueFromArray(T[] array) {
@@ -63,24 +61,17 @@ public class DataGenerating {
         return autogenEn.internet().emailAddress();
     }
 
-    static public String getDayOfBirth() {
-        return String.valueOf(dateOfBirth.get(Calendar.DAY_OF_MONTH));
-    }
-
-    static public String getMonthOfBirth() {
-        return Month.of(dateOfBirth.get(Calendar.MONTH)+1)
-                .getDisplayName(TextStyle.FULL_STANDALONE, Locale.forLanguageTag("en"));
-    }
-
-    static public String getYearOfBirth() {
-        return String.valueOf(dateOfBirth.get(Calendar.YEAR));
+    static public Calendar getDateOfBirth() {
+        GregorianCalendar dateOfBirth = new GregorianCalendar();
+        dateOfBirth.setTime(autogenEn.date().birthday(10, 120)); // (10, 120) - range of age
+        return dateOfBirth;
     }
 
     static public String getAddress() {
         return autogenRu.address().fullAddress();
     }
 
-    //specific utils for RegistrationPage
+    //specific generating data utils for RegistrationPage
 
     static public String getGender() {
         return randomValueFromArray(genders);

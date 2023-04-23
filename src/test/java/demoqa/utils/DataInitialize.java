@@ -1,11 +1,16 @@
 package demoqa.utils;
 
 import com.github.javafaker.Faker;
+import demoqa.pages.registration_page.Genders;
+import demoqa.pages.registration_page.Hobbies;
+import demoqa.pages.registration_page.Subjects;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class DataGenerating {
+import static demoqa.utils.Utils.randomValueFromArray;
+
+public class DataInitialize {
 
     //units for autogenerating data
     private static final Faker autogenRu = new Faker(new Locale("ru"));
@@ -13,13 +18,9 @@ public class DataGenerating {
 
     //describing the data, which RegistrationPage contained
 
-    private static final String[] genders = {"Male", "Female", "Other"};
+    private static final String[] genders = {Genders.MALE.toString(), Genders.FEMALE.toString(), Genders.OTHER.toString()};
 
-    private static final String[] hobbies = {"Sports", "Reading", "Music"};
-
-    private static final String[] subjects = {"Hindi", "English", "Maths", "Physics", "Chemistry", "Biology",
-            "Biology", "Commerce", "Accounting", "Economics", "Computer Science",
-            "Arts", "Social Studies", "History", "Civics"};
+    private static final String[] hobbies = {Hobbies.MUSIC.toString(), Hobbies.READING.toString(), Hobbies.SPORTS.toString()};
 
     public static final String file = "1.jpg";
     public static final String pathToPictures = "pictures/";
@@ -36,11 +37,7 @@ public class DataGenerating {
     //generating data utils
 
     private static String stateUtil; //auxiliary value to remember state as cities depend on states
-    private static ArrayList<String> unusedSubjects = new ArrayList<>(Arrays.asList(subjects)); //auxiliary value which lets to add more subjects into the 'subject field'
-
-    static public <T> T randomValueFromArray(T[] array) {
-        return array[ThreadLocalRandom.current().nextInt(0, array.length-1)];
-    }
+    private static ArrayList<Subjects> unusedSubjects = new ArrayList<>(Arrays.asList(Subjects.values())); //auxiliary value which lets to add more subjects into the 'subject field'
 
     static public String getFirstName() {
         return autogenRu.name().firstName();
@@ -80,10 +77,10 @@ public class DataGenerating {
     }
 
     static public String getSubject() {
-        String[] unused = unusedSubjects.toArray(new String[0]);
-        String subject = randomValueFromArray(unused);
+        Subjects[] unused = unusedSubjects.toArray(new Subjects[0]);
+        Subjects subject = randomValueFromArray(unused);
         unusedSubjects.remove(subject);
-        return subject;
+        return subject.toString();
     }
 
     static public String getHobby() {

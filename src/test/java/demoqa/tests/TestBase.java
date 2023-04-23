@@ -1,7 +1,7 @@
 package demoqa.tests;
 
 import com.codeborne.selenide.Configuration;
-import demoqa.pages.RegistrationPage;
+import demoqa.pages.registration_page.RegistrationPage;
 import demoqa.pages.TextBoxPage;
 import org.junit.jupiter.api.BeforeAll;
 

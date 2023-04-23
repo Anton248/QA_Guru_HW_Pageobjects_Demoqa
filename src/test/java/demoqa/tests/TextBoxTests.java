@@ -2,7 +2,7 @@ package demoqa.tests;
 
 import org.junit.jupiter.api.Test;
 
-import static demoqa.utils.DataGenerating.*;
+import static demoqa.utils.DataInitialize.*;
 
 public class TextBoxTests extends TestBase {
 
@@ -10,7 +10,7 @@ public class TextBoxTests extends TestBase {
     @Test
     void textBoxTests() {
 
-        //values for input fields (using demoqa.utils.DataGenerating)
+        //values for input fields (using demoqa.utils.Utils)
         String fullName = getFullName(),
                 email = getEmail(),
                 currentAddress = getAddress(),

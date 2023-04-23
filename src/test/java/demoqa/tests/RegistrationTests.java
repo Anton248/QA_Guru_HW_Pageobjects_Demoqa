@@ -1,6 +1,6 @@
 package demoqa.tests;
 
-import demoqa.utils.DataGenerating;
+import demoqa.utils.DataInitialize;
 import org.junit.jupiter.api.Test;
 
 import java.time.Month;
@@ -8,7 +8,7 @@ import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static demoqa.utils.DataGenerating.*;
+import static demoqa.utils.DataInitialize.*;
 
 public class RegistrationTests extends TestBase {
 
@@ -16,7 +16,7 @@ public class RegistrationTests extends TestBase {
     @Test
     void allFieldsTest() {
 
-        //values for input fields, checkboxes, etc (using demoqa.utils.DataGenerating)
+        //values for input fields, checkboxes, etc (using demoqa.utils.Utils)
 
         Calendar dateOfBirth = getDateOfBirth(); //to arrange proper dependencies between day, month and year
 
@@ -32,8 +32,8 @@ public class RegistrationTests extends TestBase {
                 subject1 = getSubject(),
                 subject2 = getSubject(),
                 hobby = getHobby(),
-                file = DataGenerating.file,
-                pathToPictures = DataGenerating.pathToPictures,
+                file = DataInitialize.file,
+                pathToPictures = DataInitialize.pathToPictures,
                 currentAddress = getAddress(),
                 state = getState(),
                 city = getCity();

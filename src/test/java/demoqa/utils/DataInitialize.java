@@ -1,9 +1,9 @@
 package demoqa.utils;
 
 import com.github.javafaker.Faker;
-import demoqa.pages.registration_page.Genders;
-import demoqa.pages.registration_page.Hobbies;
-import demoqa.pages.registration_page.Subjects;
+import demoqa.pages.registration_page.page_data.Genders;
+import demoqa.pages.registration_page.page_data.Hobbies;
+import demoqa.pages.registration_page.page_data.Subjects;
 
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;

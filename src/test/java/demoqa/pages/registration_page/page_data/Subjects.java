@@ -1,4 +1,4 @@
-package demoqa.pages.registration_page;
+package demoqa.pages.registration_page.page_data;
 
 public enum Subjects {
 

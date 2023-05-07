@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-import static demoqa.helpers.Attach.*;
 import static demoqa.utils.DataInitialize.*;
 import static io.qameta.allure.Allure.step;
 
@@ -23,17 +22,17 @@ public class TextBoxTests extends TestBase {
                 currentAddress = getAddress(),
                 permanentsAddress = getAddress();
 
-        step("open the page and remove banners", ()-> {
+        step("Open the page and remove banners", ()-> {
             textBoxPage.open().removeBanners();
         });
-        step("fill text fields", ()-> {
+        step("Fill text fields", ()-> {
             textBoxPage.setFullName(fullName)
                     .setEmail(email)
                     .setCurrentAddress(currentAddress)
                     .setPermanentAddress(permanentsAddress)
                     .submit();
         });
-        step("check results", ()-> {
+        step("Check results", ()-> {
             textBoxPage.verifyResult("Name:", fullName)
                     .verifyResult("Email:", email)
                     .verifyResult("Current Address :", currentAddress)

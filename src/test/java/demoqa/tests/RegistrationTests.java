@@ -10,7 +10,6 @@ import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static demoqa.helpers.Attach.*;
 import static demoqa.utils.DataInitialize.*;
 import static io.qameta.allure.Allure.step;
 
@@ -45,10 +44,10 @@ public class RegistrationTests extends TestBase {
                 city = getCity();
 
         //executing of the test
-        step("open the page and remove banners", ()-> {
+        step("Open the page and remove banners", ()-> {
             registrationPage.open().removeBanners();
         });
-        step("fill the input fields, click the checkboxes, etc", ()-> {
+        step("Fill the input fields, click the checkboxes, etc", ()-> {
             registrationPage.setFirstName(firstName)
                     .setLastName(lastName)
                     .setEmail(email)
@@ -63,10 +62,10 @@ public class RegistrationTests extends TestBase {
                     .setState(state)
                     .setCity(city);
         });
-        step("submit the form", ()-> {
+        step("Submit the form", ()-> {
             registrationPage.submit();
         });
-        step("check that all fields were filled right", ()-> {
+        step("Check that all fields were filled right", ()-> {
             registrationPage.verifyResultPageAppear()
                     .verifyResult("Student Name", firstName + " " + lastName)
                     .verifyResult("Student Email", email)

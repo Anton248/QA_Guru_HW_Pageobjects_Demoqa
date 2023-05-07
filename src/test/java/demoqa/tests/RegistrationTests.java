@@ -10,6 +10,7 @@ import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Locale;
 
+import static demoqa.helpers.Attach.*;
 import static demoqa.utils.DataInitialize.*;
 import static io.qameta.allure.Allure.step;
 

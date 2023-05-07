@@ -21,3 +21,9 @@ tasks.withType(JavaCompile).configureEach {
 test {
     useJUnitPlatform()
 }
+
+task practice_form_tests(type: Test) {
+    useJUnitPlatform{
+        includeTags("practice_form")
+    }
+}

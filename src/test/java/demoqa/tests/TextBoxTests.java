@@ -6,11 +6,12 @@ import org.junit.jupiter.api.Test;
 
 import static demoqa.utils.DataInitialize.*;
 
+@Tag("TextBox")
 public class TextBoxTests extends TestBase {
 
     //testing all fields on the page
     @Test
-    @Tag("TextBox") @Tag("Blocker")
+    @Tag("Blocker")
     @DisplayName("Testing all fields in the text box page")
     void textBoxTests() {
 

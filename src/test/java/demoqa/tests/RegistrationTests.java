@@ -12,10 +12,11 @@ import java.util.Locale;
 
 import static demoqa.utils.DataInitialize.*;
 
+@Tag("practice_form")
 public class RegistrationTests extends TestBase {
 
     @Test
-    @Tag("PracticeForm") @Tag("Blocker")
+    @Tag("blocker")
     @DisplayName("Testing all fields in the practice form")
     void allFieldsTest() {
 

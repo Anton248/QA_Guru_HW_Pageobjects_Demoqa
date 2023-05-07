@@ -16,7 +16,7 @@ public class RegistrationPage {
 
     //selectors of all fields on the page
     CalendarComponent calendarComponent = new CalendarComponent();
-    SelenideElement firstNameInput = $("#firstName"),
+    SelenideElement firstNameInput = $("input#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
             genderSelection = $("#genterWrapper"),

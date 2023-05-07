@@ -1,6 +1,8 @@
 package demoqa.tests;
 
 import demoqa.utils.DataInitialize;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.time.Month;
@@ -12,11 +14,12 @@ import static demoqa.utils.DataInitialize.*;
 
 public class RegistrationTests extends TestBase {
 
-    //testing all fields on the page
     @Test
+    @Tag("PracticeForm") @Tag("Blocker")
+    @DisplayName("Testing all fields in the practice form")
     void allFieldsTest() {
 
-        //values for input fields, checkboxes, etc (using demoqa.utils.Utils)
+        //preparing values for input fields, checkboxes, etc (using demoqa.utils.Utils)
 
         Calendar dateOfBirth = getDateOfBirth(); //to arrange proper dependencies between day, month and year
 

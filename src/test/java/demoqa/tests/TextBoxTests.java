@@ -1,5 +1,7 @@
 package demoqa.tests;
 
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static demoqa.utils.DataInitialize.*;
@@ -8,6 +10,8 @@ public class TextBoxTests extends TestBase {
 
     //testing all fields on the page
     @Test
+    @Tag("TextBox") @Tag("Blocker")
+    @DisplayName("Testing all fields in the text box page")
     void textBoxTests() {
 
         //values for input fields (using demoqa.utils.Utils)

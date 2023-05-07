@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static demoqa.utils.DataInitialize.*;
+import static io.qameta.allure.Allure.step;
 
 @Tag("TextBox")
 public class TextBoxTests extends TestBase {
@@ -21,19 +22,22 @@ public class TextBoxTests extends TestBase {
                 currentAddress = getAddress(),
                 permanentsAddress = getAddress();
 
-        textBoxPage.open().removeBanners();
+        step("open the page and remove banners", ()-> {
+            textBoxPage.open().removeBanners();
+        });
+        step("fill text fields", ()-> {
+            textBoxPage.setFullName(fullName)
+                    .setEmail(email)
+                    .setCurrentAddress(currentAddress)
+                    .setPermanentAddress(permanentsAddress)
+                    .submit();
+        });
+        step("check results", ()-> {
+            textBoxPage.verifyResult("Name:", fullName)
+                    .verifyResult("Email:", email)
+                    .verifyResult("Current Address :", currentAddress)
+                    .verifyResult("Permananet Address :", permanentsAddress);
+        });
 
-        //filling fields
-        textBoxPage.setFullName(fullName)
-                .setEmail(email)
-                .setCurrentAddress(currentAddress)
-                .setPermanentAddress(permanentsAddress)
-                .submit();
-
-        //checking results
-        textBoxPage.verifyResult("Name:", fullName)
-                .verifyResult("Email:", email)
-                .verifyResult("Current Address :", currentAddress)
-                .verifyResult("Permananet Address :", permanentsAddress);
     }
 }

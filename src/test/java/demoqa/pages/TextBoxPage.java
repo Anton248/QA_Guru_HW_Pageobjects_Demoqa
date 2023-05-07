@@ -2,6 +2,7 @@ package demoqa.pages;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.TimeoutException;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -22,7 +23,14 @@ public class TextBoxPage {
     SelenideElement submit = $("button#submit");
 
     public TextBoxPage open() {
-        Selenide.open("/text-box");
+        try {
+            Selenide.open("/text-box");
+        } catch (TimeoutException e) {
+            executeJavaScript("window.stop();"); //to avoid timeout exception because of long downloading of the page
+            e.printStackTrace(System.out);
+            System.out.println("WARNING:");
+            System.out.println("***Timeout exception occurred. Trying to stop downloading the page and continue anyway***");
+        }
         return this;
     }
 

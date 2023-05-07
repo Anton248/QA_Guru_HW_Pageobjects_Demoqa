@@ -11,6 +11,7 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import static demoqa.utils.DataInitialize.*;
+import static io.qameta.allure.Allure.step;
 
 @Tag("practice_form")
 public class RegistrationTests extends TestBase {
@@ -42,39 +43,42 @@ public class RegistrationTests extends TestBase {
                 state = getState(),
                 city = getCity();
 
-        //opening the page and removing banners
-        registrationPage.open().removeBanners();
+        //executing of the test
+        step("open the page and remove banners", ()-> {
+            registrationPage.open().removeBanners();
+        });
+        step("fill the input fields, click the checkboxes, etc", ()-> {
+            registrationPage.setFirstName(firstName)
+                    .setLastName(lastName)
+                    .setEmail(email)
+                    .setGender(gender)
+                    .setMobileNumber(mobileNumber)
+                    .setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth)
+                    .setSubject(subject1)
+                    .setSubject(subject2)
+                    .setHobby(hobby)
+                    .uploadFile(pathToPictures + file)
+                    .setAddress(currentAddress)
+                    .setState(state)
+                    .setCity(city);
+        });
+        step("submit the form", ()-> {
+            registrationPage.submit();
+        });
+        step("check that all fields were filled right", ()-> {
+            registrationPage.verifyResultPageAppear()
+                    .verifyResult("Student Name", firstName + " " + lastName)
+                    .verifyResult("Student Email", email)
+                    .verifyResult("Gender", gender)
+                    .verifyResult("Mobile", mobileNumber)
+                    .verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
+                    .verifyResult("Subjects", subject1)
+                    .verifyResult("Subjects", subject2)
+                    .verifyResult("Hobbies", hobby)
+                    .verifyResult("Picture", file)
+                    .verifyResult("Address", currentAddress)
+                    .verifyResult("State and City", state + " " + city);
+        });
 
-        //filling the input fields, clicking the checkboxes, etc
-        registrationPage.setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(email)
-                .setGender(gender)
-                .setMobileNumber(mobileNumber)
-                .setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth)
-                .setSubject(subject1)
-                .setSubject(subject2)
-                .setHobby(hobby)
-                .uploadFile(pathToPictures + file)
-                .setAddress(currentAddress)
-                .setState(state)
-                .setCity(city);
-
-        //submit the form
-        registrationPage.submit();
-
-        //checking that all fields were filled right
-        registrationPage.verifyResultPageAppear()
-                .verifyResult("Student Name", firstName + " " + lastName)
-                .verifyResult("Student Email", email)
-                .verifyResult("Gender", gender)
-                .verifyResult("Mobile", mobileNumber)
-                .verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
-                .verifyResult("Subjects", subject1)
-                .verifyResult("Subjects", subject2)
-                .verifyResult("Hobbies", hobby)
-                .verifyResult("Picture", file)
-                .verifyResult("Address", currentAddress)
-                .verifyResult("State and City", state + " " + city);
     }
 }

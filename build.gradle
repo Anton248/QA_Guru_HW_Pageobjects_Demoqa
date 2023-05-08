@@ -39,8 +39,18 @@ test {
     useJUnitPlatform()
 }
 
-task practice_form_tests(type: Test) {
+task practice_form(type: Test) {
     useJUnitPlatform{
         includeTags("practice_form")
+    }
+}
+task smoke(type: Test) {
+    useJUnitPlatform{
+        includeTags("smoke")
+    }
+}
+task blocker(type: Test) {
+    useJUnitPlatform{
+        includeTags("blocker")
     }
 }

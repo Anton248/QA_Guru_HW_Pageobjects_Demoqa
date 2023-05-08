@@ -23,7 +23,8 @@ public class TestBaseRemote {
         String selenoidUrl = System.getProperty("selenoid_url");
         String selenoidLoginPassword = System.getProperty("selenoid_login_password"); //format is {login}:{password}
         selenoidUrl = selenoidUrl.replaceAll("https://", "");
-        Configuration.remote = System.getProperty("https://" + selenoidLoginPassword + "@" + selenoidUrl);
+        System.out.println("https://" + selenoidLoginPassword + "@" + selenoidUrl);
+        Configuration.remote = "https://" + selenoidLoginPassword + "@" + selenoidUrl;
 
         //url of the site, which is tested (from command line)
         Configuration.baseUrl = System.getProperty("site_base_url", "https://demoqa.com");
@@ -31,7 +32,8 @@ public class TestBaseRemote {
         //type of browser and its version (from command line) (example - 'chrome:100.0')
         String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
         Configuration.browser = browser[0];
-        Configuration.browserVersion = browser[1];
+        //Configuration.browserVersion = browser[1];
+        System.out.println(browser[1]);
 
         //size of browser (from command line)
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");

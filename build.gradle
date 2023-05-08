@@ -39,6 +39,11 @@ test {
     useJUnitPlatform()
 }
 
+//нужно, чтобы брать переменные из командной строки через -D<имя переменной>=<значение>
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+}
+
 task practice_form(type: Test) {
     useJUnitPlatform{
         includeTags("practice_form")

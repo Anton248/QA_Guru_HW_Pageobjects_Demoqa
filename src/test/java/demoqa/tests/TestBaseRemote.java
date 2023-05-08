@@ -25,6 +25,9 @@ public class TestBaseRemote {
         selenoidUrl = selenoidUrl.replaceAll("https://", "");
         Configuration.remote = "https://" + selenoidLoginPassword + "@" + selenoidUrl;
 
+        //to avoid freeze during loading pages
+        Configuration.pageLoadStrategy = "eager";
+
         //url of the site, which is tested (from command line)
         Configuration.baseUrl = System.getProperty("site_base_url", "https://demoqa.com");
 

@@ -19,10 +19,16 @@ public class TestBaseRemote {
 
     @BeforeAll
     static void beforeAll() {
-        //remote browser on Selenoid
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        //remote browser on Selenoid (from command line)
+        Configuration.remote = System.getProperty("selenoid_url");
 
-        Configuration.baseUrl = "https://demoqa.com";  //site to test (from command line)
+        //url of the site, which is tested (from command line)
+        Configuration.baseUrl = System.getProperty("site_base_url", "https://demoqa.com");
+
+        //type of browser (from command line)
+        Configuration.browser = System.getProperty("browser", "chrome");
+
+        //size of browser (from command line)
         Configuration.browserSize = "1920x1080";
 
         //for Allure report

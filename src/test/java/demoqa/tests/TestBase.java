@@ -20,7 +20,7 @@ public class TestBase {
         //remote browser on Selenoid
         Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
-        Configuration.baseUrl = "https://demoqa.com";  //site to test
+        Configuration.baseUrl = "https://demoqa.com";  //site to test (from command line)
         Configuration.browserSize = "1920x1080";
 
         //for Allure report

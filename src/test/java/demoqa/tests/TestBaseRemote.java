@@ -23,7 +23,6 @@ public class TestBaseRemote {
         String selenoidUrl = System.getProperty("selenoid_url");
         String selenoidLoginPassword = System.getProperty("selenoid_login_password"); //format is {login}:{password}
         selenoidUrl = selenoidUrl.replaceAll("https://", "");
-        System.out.println("https://" + selenoidLoginPassword + "@" + selenoidUrl);
         Configuration.remote = "https://" + selenoidLoginPassword + "@" + selenoidUrl;
 
         //url of the site, which is tested (from command line)

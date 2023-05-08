@@ -32,8 +32,7 @@ public class TestBaseRemote {
         //type of browser and its version (from command line) (example - 'chrome:100.0')
         String[] browser = System.getProperty("browser", "chrome:100.0").split(":");
         Configuration.browser = browser[0];
-        //Configuration.browserVersion = browser[1];
-        System.out.println(browser[1]);
+        Configuration.browserVersion = browser[1];
 
         //size of browser (from command line)
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");

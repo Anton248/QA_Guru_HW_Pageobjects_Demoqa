@@ -38,11 +38,12 @@ public class RegistrationPage {
     //describing all actions on the page
 
     public RegistrationPage open() {
-        try {
-            Selenide.open("/automation-practice-form");
-        } catch (Exception e) {
-            executeJavaScript("window.stop();");
-        }
+//        try {
+//            Selenide.open("/automation-practice-form");
+//        } catch (Exception e) {
+//            executeJavaScript("window.stop();");
+//        }
+        Selenide.open("/automation-practice-form");
         $(byTagAndText("h5", "Student Registration Form")).shouldBe(visible);
         executeJavaScript("$('#fixedban').remove()"); //removing ad banners
         executeJavaScript("$('footer').remove()"); //removing ad banners

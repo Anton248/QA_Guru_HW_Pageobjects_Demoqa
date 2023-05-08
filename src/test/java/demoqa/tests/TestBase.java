@@ -15,6 +15,7 @@ public class TestBase {
         Configuration.browser = "firefox";
         Configuration.baseUrl = "https://demoqa.com";  //site to test
         Configuration.browserSize = "1920x1080";
+        Configuration.pageLoadStrategy = "eager";
         //Configuration.holdBrowserOpen = true; // show browser to test the tests themselves
     }
 }

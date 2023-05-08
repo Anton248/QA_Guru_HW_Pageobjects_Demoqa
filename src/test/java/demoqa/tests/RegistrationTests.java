@@ -48,19 +48,30 @@ public class RegistrationTests extends TestBase {
             registrationPage.open().removeBanners();
         });
         step("Fill the input fields, click the checkboxes, etc", ()-> {
-            registrationPage.setFirstName(firstName)
-                    .setLastName(lastName)
-                    .setEmail(email)
-                    .setGender(gender)
-                    .setMobileNumber(mobileNumber)
-                    .setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth)
-                    .setSubject(subject1)
-                    .setSubject(subject2)
-                    .setHobby(hobby)
-                    .uploadFile(pathToPictures + file)
-                    .setAddress(currentAddress)
-                    .setState(state)
-                    .setCity(city);
+            step("Set name", ()-> {
+                registrationPage.setFirstName(firstName).setLastName(lastName);
+            });
+            step("Set email and mobile number", ()-> {
+                registrationPage.setEmail(email).setMobileNumber(mobileNumber);
+            });
+            step("Set gender", ()-> {
+                registrationPage.setGender(gender);
+            });
+            step("Set date of birth", ()-> {
+                registrationPage.setDateOfBirth(dayOfBirth, monthOfBirth, yearOfBirth);
+            });
+            step("Set subjects and hobby", ()-> {
+                registrationPage.setSubject(subject1).setSubject(subject2).setHobby(hobby);
+            });
+            step("Upload pic", ()-> {
+                registrationPage.uploadFile(pathToPictures + file);
+            });
+            step("Set address", ()-> {
+                registrationPage.setAddress(currentAddress);
+            });
+            step("Set state and city", ()-> {
+                registrationPage.setState(state).setCity(city);
+            });
         });
         step("Submit the form", ()-> {
             registrationPage.submit();

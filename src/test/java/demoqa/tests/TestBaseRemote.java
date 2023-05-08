@@ -13,7 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 // Preparing browser for all tests
 @Tag("remote")
-public class TestBase {
+public class TestBaseRemote {
     RegistrationPage registrationPage = new RegistrationPage();
     TextBoxPage textBoxPage = new TextBoxPage();
 

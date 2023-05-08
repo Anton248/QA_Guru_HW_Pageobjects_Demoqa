@@ -54,3 +54,8 @@ task blocker(type: Test) {
         includeTags("blocker")
     }
 }
+task remote(type: Test) {
+    useJUnitPlatform{
+        includeTags("remote")
+    }
+}

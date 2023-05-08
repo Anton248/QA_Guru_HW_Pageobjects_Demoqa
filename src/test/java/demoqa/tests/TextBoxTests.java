@@ -8,7 +8,7 @@ import static demoqa.utils.DataInitialize.*;
 import static io.qameta.allure.Allure.step;
 
 @Tag("text_box")
-public class TextBoxTests extends TestBase {
+public class TextBoxTests extends TestBaseRemote {
 
     //testing all fields on the page
     @Test

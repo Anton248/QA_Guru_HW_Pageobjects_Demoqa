@@ -8,9 +8,11 @@ import demoqa.pages.TextBoxPage;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 // Preparing browser for all tests
+@Tag("remote")
 public class TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     TextBoxPage textBoxPage = new TextBoxPage();

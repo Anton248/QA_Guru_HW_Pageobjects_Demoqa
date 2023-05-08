@@ -17,7 +17,7 @@ import static io.qameta.allure.Allure.step;
 public class RegistrationTests extends TestBase {
 
     @Test
-    @Tag("blocker")
+    @Tag("blocker") @Tag("smoke")
     @DisplayName("Testing all fields in the practice form")
     void allFieldsTest() {
 

@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test;
 import static demoqa.utils.DataInitialize.*;
 import static io.qameta.allure.Allure.step;
 
-@Tag("TextBox")
+@Tag("text_box")
 public class TextBoxTests extends TestBase {
 
     //testing all fields on the page
     @Test
-    @Tag("Blocker")
+    @Tag("blocker") @Tag("smoke")
     @DisplayName("Testing all fields in the text box page")
     void textBoxTests() {
 

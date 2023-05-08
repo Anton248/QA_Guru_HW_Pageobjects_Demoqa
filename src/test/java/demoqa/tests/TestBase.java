@@ -12,6 +12,7 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
+        Configuration.browser = "firefox";
         Configuration.baseUrl = "https://demoqa.com";  //site to test
         Configuration.browserSize = "1920x1080";
         //Configuration.holdBrowserOpen = true; // show browser to test the tests themselves

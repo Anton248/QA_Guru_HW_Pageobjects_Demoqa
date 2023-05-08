@@ -25,11 +25,13 @@ public class TestBaseRemote {
         //url of the site, which is tested (from command line)
         Configuration.baseUrl = System.getProperty("site_base_url", "https://demoqa.com");
 
-        //type of browser (from command line)
-        Configuration.browser = System.getProperty("browser", "chrome");
+        //type of browser and its version (from command line) (example - 'chrome:100.0')
+        String[] browser = System.getProperty("browser").split(":");
+        Configuration.browser = System.getProperty(browser[0], "chrome");
+        Configuration.browserVersion = System.getProperty(browser[1]);
 
         //size of browser (from command line)
-        Configuration.browserSize = "1920x1080";
+        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
 
         //for Allure report
         SelenideLogger.addListener("allure", new AllureSelenide());

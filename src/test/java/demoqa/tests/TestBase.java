@@ -20,7 +20,7 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         //remote browser on Selenoid
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+        Configuration.remote = "http://localhost:4444/wd/hub";
 
         Configuration.baseUrl = "https://demoqa.com";  //site to test
         Configuration.browserSize = "1920x1080";

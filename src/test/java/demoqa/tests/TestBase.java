@@ -29,12 +29,12 @@ public class TestBase {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
         //for video
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", true);
+//        Configuration.browserCapabilities = capabilities;
 
-        //Configuration.holdBrowserOpen = true; // show browser to test the tests themselves
+        Configuration.holdBrowserOpen = true; // show browser to test the tests themselves
     }
 
     @AfterEach

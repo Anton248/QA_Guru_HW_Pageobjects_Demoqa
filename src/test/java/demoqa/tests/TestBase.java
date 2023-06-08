@@ -5,6 +5,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import demoqa.helpers.Attach;
 import demoqa.pages.registration_page.RegistrationPage;
 import demoqa.pages.TextBoxPage;
+import demoqa.tests.config.TestsConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,6 +15,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 // Preparing browser for all tests
 @Tag("remote")
 public class TestBase {
+    TestsConfig config = new TestsConfig();
     RegistrationPage registrationPage = new RegistrationPage();
     TextBoxPage textBoxPage = new TextBoxPage();
 
@@ -57,5 +59,6 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
+
     }
 }

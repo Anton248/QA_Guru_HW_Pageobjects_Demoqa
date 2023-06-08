@@ -1,6 +1,6 @@
 package demoqa.tests.config;
 
-public class WebDriverConfig {
+public class TestsConfig {
 
     public String getBaseUrl() {
         return "https://github.com";

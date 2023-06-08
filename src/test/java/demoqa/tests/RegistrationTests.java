@@ -14,7 +14,7 @@ import static demoqa.utils.DataInitialize.*;
 import static io.qameta.allure.Allure.step;
 
 @Tag("practice_form")
-public class RegistrationTests extends TestBaseRemote {
+public class RegistrationTests extends TestBase {
 
     @Test
     @Tag("smoke") @Tag("blocker")

@@ -5,8 +5,9 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import demoqa.helpers.Attach;
 import demoqa.pages.registration_page.RegistrationPage;
 import demoqa.pages.TextBoxPage;
-import demoqa.tests.config.TestsConfig;
+import demoqa.tests.config.BrowserAndSelenoidConfig;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Tag;
@@ -15,7 +16,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 // Preparing browser for all tests
 @Tag("remote")
 public class TestBase {
-    TestsConfig config = new TestsConfig();
+    BrowserAndSelenoidConfig browserConfig = ConfigFactory.create(BrowserAndSelenoidConfig.class, System.getProperties());
     RegistrationPage registrationPage = new RegistrationPage();
     TextBoxPage textBoxPage = new TextBoxPage();
 

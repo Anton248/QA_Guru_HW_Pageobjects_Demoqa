@@ -65,3 +65,8 @@ task remote(type: Test) {
         includeTags("remote")
     }
 }
+task tmp(type: Test) {
+    useJUnitPlatform{
+        includeTags("tmdp")
+    }
+}

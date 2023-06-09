@@ -5,7 +5,9 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import demoqa.helpers.Attach;
 import demoqa.pages.registration_page.RegistrationPage;
 import demoqa.pages.TextBoxPage;
+import demoqa.tests.config.BaseUrlConfig;
 import demoqa.tests.config.BrowserAndSelenoidConfig;
+import demoqa.tests.config.BrowserSizeConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
@@ -14,15 +16,16 @@ import org.junit.jupiter.api.Tag;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 // Preparing browser for all tests
-@Tag("remote")
 public class TestBase {
     BrowserAndSelenoidConfig browserConfig = ConfigFactory.create(BrowserAndSelenoidConfig.class, System.getProperties());
+    BrowserSizeConfig browserSizeConfig = ConfigFactory.create(BrowserSizeConfig.class, System.getProperties());
+    BaseUrlConfig baseUrlConfig = ConfigFactory.create(BaseUrlConfig.class, System.getProperties());
     RegistrationPage registrationPage = new RegistrationPage();
     TextBoxPage textBoxPage = new TextBoxPage();
 
     @BeforeAll
     static void beforeAll() {
-        //remote browser on Selenoid (from command line)
+        //url to browser in Selenoid (if exists)
         String selenoidUrl = System.getProperty("selenoid_url");
         String selenoidLoginPassword = System.getProperty("selenoid_login_password"); //format is {login}:{password}
         selenoidUrl = selenoidUrl.replaceAll("https://", "");

@@ -1,14 +1,15 @@
 package demoqa.tests.config;
+
 import org.aeonbits.owner.Config;
 
 //name of the config files (in the folder resources)
 @Config.Sources({
-        "classpath:${browser_config}.properties",  //${browser_config} - from System.properties (kinda System.getProperty("browser_config"))
+        "classpath:${browser_config_file}.properties",  //${browser_config_file} - from System.properties (kinda System.getProperty("browser_config_file"))
         "classpath:remote_selenoid.properties",
-        "classpath:local_browser.properties",
+        "classpath:local_browser.properties"
 })
 
-//magically getting properties from files (in the resources folder) or System.properties (if exists)
+//magically getting properties from files (in the resources folder) or System.properties (if exists). System.properties has priority.
 public interface BrowserAndSelenoidConfig extends Config {
 
     //for example getting 'chrome' from line 'browser.name="chrome" ' in the file local_browser.properties

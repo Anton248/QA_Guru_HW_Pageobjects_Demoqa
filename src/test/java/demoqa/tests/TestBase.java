@@ -39,7 +39,6 @@ public class TestBase {
     @BeforeAll
     static void beforeAll() {
         //putting browser and its version into Selenide config
-        System.out.println(webDriverConfig.getBrowserName());
         Configuration.browser = webDriverConfig.getBrowserName();
         Configuration.browserVersion = webDriverConfig.getBrowserVersion();
 

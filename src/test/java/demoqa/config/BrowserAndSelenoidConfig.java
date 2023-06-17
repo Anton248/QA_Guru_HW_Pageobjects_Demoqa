@@ -16,6 +16,7 @@ public interface BrowserAndSelenoidConfig extends Config {
     //for example getting 'chrome' from line 'browser.name="chrome" ' in the file local_browser.properties
     //or getting 'chrome' from System.properties, like System.getProperty("browser.name")
     @Key("browser.name")
+    @DefaultValue("chrome")
     String getBrowserName();
 
     @Key("browser.version")

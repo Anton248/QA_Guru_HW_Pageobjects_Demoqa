@@ -10,5 +10,6 @@ import org.aeonbits.owner.Config;
 public interface BaseUrlConfig extends Config{
 
     @Key("base.url")
+    @DefaultValue("https://demoqa.com")
     String getBaseUrl();
 }

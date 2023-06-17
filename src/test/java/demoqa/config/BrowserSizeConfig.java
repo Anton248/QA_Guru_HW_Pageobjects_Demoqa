@@ -8,6 +8,7 @@ import org.aeonbits.owner.Config;
 })
 public interface BrowserSizeConfig extends Config{
 
-    @Config.Key("browser.size")
+    @Key("browser.size")
+    @DefaultValue("1920x1080")
     String getBrowserSize();
 }

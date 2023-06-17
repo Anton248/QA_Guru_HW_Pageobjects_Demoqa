@@ -1,7 +1,7 @@
 package demoqa.helpers;
 
 import com.codeborne.selenide.Selenide;
-import demoqa.tests.config.BrowserAndSelenoidConfig;
+import demoqa.config.config.BrowserAndSelenoidConfig;
 import io.qameta.allure.Attachment;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.OutputType;

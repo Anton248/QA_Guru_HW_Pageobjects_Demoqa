@@ -1,4 +1,4 @@
-package demoqa.tests.config;
+package demoqa.config.config;
 
 import org.aeonbits.owner.Config;
 

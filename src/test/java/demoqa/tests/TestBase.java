@@ -5,16 +5,14 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import demoqa.helpers.Attach;
 import demoqa.pages.registration_page.RegistrationPage;
 import demoqa.pages.TextBoxPage;
-import demoqa.tests.config.BaseUrlConfig;
-import demoqa.tests.config.BrowserAndSelenoidConfig;
-import demoqa.tests.config.BrowserSizeConfig;
+import demoqa.config.config.BaseUrlConfig;
+import demoqa.config.config.BrowserAndSelenoidConfig;
+import demoqa.config.config.BrowserSizeConfig;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
-
-import java.util.Objects;
 
 // Preparing all for tests
 public class TestBase {
@@ -28,7 +26,7 @@ public class TestBase {
     // - base url to test (e.g. "https://demoqa.com"; command line: -D"base.url"="https..."; file: base.url=https...)
     // - browser size (e.g. "1920x1080"; command line: -D"browser.size"="1920x1080"; file: browser.size=1920x1080).
 
-    // Files with configuration can be specified by command line too, for example:
+    // Configuration files can be specified by command line too, for example:
     //   gradle clean test -D"browser_config"="remote_selenoid" -D"base_url_config"="base_url" -D"browser_size_config"="browser_size"
     // This command will read configs from files remote_selenoid.properties, base_url.properties and browser_size.properties in the resources folder.
 

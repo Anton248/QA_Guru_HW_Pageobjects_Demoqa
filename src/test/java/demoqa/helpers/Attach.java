@@ -1,7 +1,7 @@
 package demoqa.helpers;
 
 import com.codeborne.selenide.Selenide;
-import demoqa.config.BrowserAndSelenoidConfig;
+import demoqa.config.WebDriverConfig;
 import io.qameta.allure.Attachment;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.OutputType;
@@ -46,7 +46,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        BrowserAndSelenoidConfig browserConfig = ConfigFactory.create(BrowserAndSelenoidConfig.class, System.getProperties());
+        WebDriverConfig browserConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
         String videoUrl = browserConfig.getSelenoidVideoUrl() + sessionId() + ".mp4";  //url from command line
         try {
             return new URL(videoUrl);

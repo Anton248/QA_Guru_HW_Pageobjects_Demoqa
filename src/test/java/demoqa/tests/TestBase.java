@@ -24,11 +24,11 @@ public class TestBase {
     // - browser size (e.g. "1920x1080"; command line: -D"browser.size"="1920x1080"; file: browser.size=1920x1080)
 
     // Configuration files can be specified by command line too, for example:
-    //   gradle clean test -D"browser_config"="remote_selenoid"
+    //   gradle clean test -D"webdriver_config"="remote_selenoid"
     // This command will read configs from files remote_selenoid.properties in the resources folder.
 
     // Another example of command file which mixed config file and direct values:
-    //   gradle clean test -D"browser_config"="remote_selenoid" -D"browser.size"="1920x1080" -D"base.url"="https://demoqa.com".
+    //   gradle clean test -D"webdriver_config"="remote_selenoid" -D"browser.size"="1920x1080" -D"base.url"="https://demoqa.com".
 
 
     private static final WebDriverConfig webDriverConfig = ConfigFactory.create(WebDriverConfig.class, System.getProperties());

@@ -5,7 +5,6 @@ import org.aeonbits.owner.Config;
 //Names of the config files (in the folder resources). Only one file is used.
 //If the first file doesn't exist, then second file is used, etc.
 @Config.Sources({
-        "classpath:local_selenoid.properties",
         "classpath:${browser_config}.properties",
         "classpath:remote_selenoid.properties",
         "classpath:local_browser.properties",
